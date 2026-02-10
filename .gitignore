@@ -1,0 +1,16 @@
+# Node
+node_modules/
+
+# PHP / vendor
+vendor/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Backup git folder
+.git.bak/
