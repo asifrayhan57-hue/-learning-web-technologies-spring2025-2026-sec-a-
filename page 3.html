@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 3 - Gender</title>
+</head>
+<body>
+<h3>Select Gender</h3>
+<form onsubmit="return validateGender()">
+    <input type="radio" name="gender"> Male
+    <input type="radio" name="gender"> Female
+    <input type="radio" name="gender"> Other
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<script>
+function validateGender() {
+    let g = document.getElementsByName("gender");
+    for (let i = 0; i < g.length; i++) {
+        if (g[i].checked) {
+            alert("Valid Selection");
+            return true;
+        }
