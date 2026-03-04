@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 6 - Blood Group</title>
+</head>
+<body>
+<h3>Select Blood Group</h3>
+<form onsubmit="return validateBlood()">
+    <select id="bg">
+        <option value="">Select</option>
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>O+</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<script>
+function validateBlood() {
+    let bg = document.getElementById("bg").value;
+    if (bg === "") {
+        alert("Select blood group");
+        return false;
+    }
+    return true;
+}
+</script>
+</body>
+</html>
