@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    /* Board layout */
+    #board {
+      width: 330px;
+      height: 330px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 16px 0;
+    }
+ 
+    .cell {
+      background: #fafafa;
+      border: 2px solid #ccc;
+      font-size: 48px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      cursor: pointer;
+      border-radius: 8px;
+      position: relative;
+      transition: transform 150ms ease, background 200ms ease;
+      /* keep text centered like default h1 in your code */
+    }
+ 
+    /* mark animation */
+    .cell.marked {
+      transform: scale(1.04);
+    }
+ 
+    /* winning cells highlight */
+    .cell.win {
+      background: linear-gradient(90deg,#fffae6,#ffd6a5);
+      border-color: #ffb347;
+      box-shadow: 0 6px 18px rgba(255,155,30,0.18);
+    }
+ 
+    /* status & controls */
+    #controls { margin-top: 12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    #status { font-size: 16px; min-width: 200px; }
+    button { padding: 8px 12px; border-radius:6px; border:1px solid #888; background:#fff; cursor:pointer; }
+    button:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+ 
+    /* score */
+    #scoreboard { display:flex; gap:12px; align-items:center; margin-top:8px; }
+    .scoreBox { padding:6px 10px; border-radius:6px; background:#f3f3f3; border:1px solid #e0e0e0; }
+ 
+    /* responsive */
+    @media (max-width:420px){
+      #board { width: 260px; height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Tic-Tac-Toe</h1>
+ 
+  <!-- Status display -->
+  <p id="status">Current player: <strong id="currentPlayer">X</strong></p>
+ 
+  <!-- Scoreboard -->
+  <div id="scoreboard">
+    <div class="scoreBox">X wins: <span id="scoreX">0</span></div>
+    <div class="scoreBox">O wins: <span id="scoreO">0</span></div>
+  </div>
+ 
+  <!-- Board container (cells created by JS) -->
+  <div id="board" aria-label="Tic Tac Toe board"></div>
+ 
+  <!-- Controls -->
+  <div id="controls">
+    <button id="reset">Reset</button>
+    <button id="resetScores">Reset Scores</button>
+    <p id="message" style="margin:0 0 0 8px;color:#444"></p>
+  </div>
+ 
+  <!-- link to script file (same architecture as your sample) -->
+  <script src="script.js"></script>
+</body>
+</html>
+ 
