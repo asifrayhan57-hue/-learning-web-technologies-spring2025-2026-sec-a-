@@ -1,22 +1,38 @@
-function validateName() {
-    let name = document.getElementById("name").value.trim();
-    let pattern = /^[A-Za-z][A-Za-z.-]+\s+[A-Za-z.-]+$/;
-    if (name === "") {
-        alert("Name cannot be empty");
-        return false;
-    }
-    if (!pattern.test(name)) {
-        alert("Enter valid full name (2 words, start with letter)");
-        return false;
-    }
-    alert("Valid Name");
-    return true;
-}$Env:GITHUB_TOKEN = "YOUR_PERSONAL_ACCESS_TOKEN"
-$Env:GITHUB_TOKEN | gh auth login --with-token
-
-cd "c:\xampp\htdocs\Web Tech"
-git init
-git remote add origin https://github.com/asifrayhan57-hue/-learning-web-technologies-spring2025-2026-sec-a-.git 2>$null || git remote set-url origin https://github.com/asifrayhan57-hue/-learning-web-technologies-spring2025-2026-sec-a-.git
-git add "<file>"
-git commit -m "Add <file>"
-git push -u origin master
+// Fixed Unit Price
+const UNIT_PRICE = 1000; // static data
+ 
+// DOM elements
+const unitPriceDisplay = document.getElementById('unitPriceDisplay');
+const qtyInput = document.getElementById('qty');
+const totalInput = document.getElementById('totalPrice');
+ 
+// show unit price on page
+unitPriceDisplay.textContent = UNIT_PRICE;
+ 
+function updateTotal(){
+  // read value and coerce to number
+  let q = Number(qtyInput.value);
+ 
+  // Validation: treat non-number or negative as 0
+  if (isNaN(q) || q < 0) {
+    q = 0;
+    qtyInput.value = 0; // reset input to 0
+  }
+ 
+  const total = UNIT_PRICE * q;
+ 
+  // update readonly field
+  totalInput.value = total;
+ 
+  // Gift coupon notification if total exceeds 1000
+  if (total > 1000){
+    alert('You are eligible for a gift coupon!');
+  }
+}
+ 
+// Real-time update
+qtyInput.addEventListener('input', updateTotal);
+ 
+// initialize
+updateTotal();
+ 
